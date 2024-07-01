@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Notes</title> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+  <h3 class="text-center py-2">Edit book</h3>
+    <br>
+
+  <form method="POST" action="/edited">
+    <div class="px-3">
+      
+      <div class="mb-3">
+        <!-- <label for="exampleFormControlInput1" class="form-label">ID</label> -->
+        <input type="hidden" name="id" value="<%= id %>">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Title</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="Title" rows="3" ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="Content" rows="8" ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Rating(/5)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" step="0.01" name="Rating" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Time(in years)</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" step="0.02" name="Time" >
+      </div><div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary my-4 ">Submit</button>
+  </div>  </div>
+  </form>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

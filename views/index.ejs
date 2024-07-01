@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header class="d-flex flex-wrap justify-content-center py-3  border-bottom " style="background-color: #D3D3D3;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+          <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+        </svg>
+
+        <span class="fs-4 mx-2">Notebook</span>
+      </a>
+    
+      <form   method="get">
+      <ul class="nav nav-pills">
+        
+        <form action="/" method="get">
+            <button class="nav-item nav-link bg-white text-black mx-2 "type="submit" style="border: 1px solid grey;">Home</button>
+        </form>
+
+        <form action="/new" method="get">
+          <button class="nav-item nav-link bg-white text-black mx-2" type="submit" style="border: 1px solid grey;">Add a book</button>
+      </form>
+
+
+      <!-- <form >
+        <button class="nav-item nav-link bg-white text-black mx-2" type="submit" style="border: 1px solid grey;">Filter</button>
+    </form> -->
+
+
+
+    <div class="dropdown">
+      <button class="nav-item nav-link bg-white text-black mx-2  dropdown-toggle"  style="border: 1px solid grey;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li>
+      
+
+          <form action="/filter" method="post"> 
+            <button type="submit" name="filter" value="latest" class="dropdown-item">Latest</button>
+          </form>
+        </li>
+        <li>
+          <form action="/filter" method="post">
+            <button type="submit" name="filter" value="most_liked" class="dropdown-item">Most Liked</button>
+          </form>
+
+
+        </li>
+        <!-- Add more filter options as needed -->
+      </ul>
+    </div>
+
+        
+
+
+     </ul>
+    </form>
+    </header>
+    <!-- ISBN: 9781612681139 richdad -->
+    <!-- https://s26162.pcdn.co/wp-content/uploads/2022/12/worn-3-678x1024.jpg -->
+    <!-- https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg -->
+    <section  style=" background:white">
+    
+    <br>
+   
+    <!-- for loop -->
+   <% for (let i = 0; i < data.length; i++) { %>
+    <%    let now=data[i]; %>
+    <%    let id=now.id; %>
+
+    <div class="container mx-1 " id="<%=id%>" >
+      <div class="row g-0 mb-4 mx-2 bg-white" style="height: auto; border: 1px solid grey;  ">
+        <div class="col-md-4">
+          <img src=  <%=now.picture%> style=" height: 378.5px; width: 350px;  " alt="bookCover" >
+        </div>
+        <div class="col-md-8 bg-white text-black">
+          <div class="card-body ">
+            <h5 class="card-title my-4"><%=now.title %></h5>
+          
+            <p class="card-text"><%=now.content%></p>
+            <p class="card-text " style="font-weight: bold;">Rating: <%=now.rating%></p>
+            <p class="card-text"><small class="text-body-secondary"><%= now.time%> years ago</small></p>
+
+            <div style="display:flex; gap:10px">
+              <form action="/edit" method="post">
+                  <input type="hidden" name="id" value="<%= id %>">
+                   <button class="btn btn-primary mb-1" style="display:inline-block">Edit</button>
+              </form>
+              <form action="/delete" method="post">
+                  <input type="hidden" name="id" value="<%= id %>">
+                  <button class="btn btn-primary mb-1" style="display:inline-block">Delete</button>
+              </form>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  <%  } %>
+    <div class="card "style="background-color: #D3D3D3;">
+      <div class="card-header">
+        Quote
+      </div>
+      <div class="card-body ">
+        <blockquote class="blockquote mb-0">
+          <p>"The only thing you absolutely have to know is the location of the library." </p>
+          <footer class="blockquote-footer text-black"> Albert Einstein <cite title="Source Title"></cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
