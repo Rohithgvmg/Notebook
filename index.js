@@ -14,8 +14,8 @@ app.set('view engine', 'ejs');
 const db=new pg.Client({
   user:"postgres",
   host:"localhost",
-  database:"Notebook",
-  password:"Rohith",
+  database:"Notebook", //create your own database in postgres and put that name here
+  password:"******", //drop your password for postgres
   port:5432,
 });
 
