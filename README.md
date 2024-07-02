@@ -6,4 +6,11 @@ This project aims to serve as notebook for your book reviews and
  Essentially it is a Notebook 
 
 Download files to your local system for running
-and use npm i and nodemon index.js to run the project
+and use
+
+npm i 
+and 
+
+nodemon index.js 
+
+to run the project
