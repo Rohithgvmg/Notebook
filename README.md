@@ -1,5 +1,5 @@
 # Notebook
-
+Full stack - frontend with EJS and javascript, backend in Node.js with API , database 
 This project aims to serve as notebook for your book reviews and
  renders cover pages for asked books and uses database for data persistence.
 
